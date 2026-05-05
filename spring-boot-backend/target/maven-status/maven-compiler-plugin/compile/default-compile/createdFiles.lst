@@ -1,4 +1,5 @@
 com/homerp/dto/TransactionSummaryDTO.class
+com/homerp/config/CorsConfig.class
 com/homerp/controller/CategoryController.class
 com/homerp/HomErpApplication.class
 com/homerp/entity/User.class

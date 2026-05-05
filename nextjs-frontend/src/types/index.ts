@@ -43,7 +43,9 @@ export interface Account {
 }
 
 export interface TransactionSummary {
-  totalIncome: number;
-  totalExpense: number;
-  balance: number;
+  startDate?: string;
+  endDate?: string;
+  totalInflows: number;
+  totalOutflows: number;
+  netBalance: number;
 }
