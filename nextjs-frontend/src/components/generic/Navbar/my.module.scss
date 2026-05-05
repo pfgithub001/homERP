@@ -1,0 +1,161 @@
+@use '@/styles/variables' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: $white;
+  border-bottom: 1px solid $gray-200;
+  box-shadow: $shadow-sm;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $spacing-md $spacing-lg;
+}
+
+.brand {
+  flex-shrink: 0;
+}
+
+.brandLink {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: darken($primary, 10%);
+  }
+}
+
+.brandText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $primary;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: $spacing-lg;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.navLink {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: $gray-600;
+  text-decoration: none;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $gray-900;
+    background-color: $gray-100;
+  }
+
+  &.active {
+    color: $primary;
+    background-color: rgba($primary, 0.1);
+  }
+}
+
+.actions {
+  display: none;
+  align-items: center;
+  gap: $spacing-md;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: $spacing-xs;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.hamburgerLine {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: $gray-700;
+  border-radius: 2px;
+  transition: all $transition-fast;
+
+  &.open {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+  }
+}
+
+.mobileMenu {
+  display: none;
+  background-color: $white;
+  border-top: 1px solid $gray-200;
+
+  @media (max-width: 767px) {
+    &.mobileMenuOpen {
+      display: block;
+    }
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-md;
+  gap: $spacing-xs;
+}
+
+.mobileNavLink {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $gray-700;
+  text-decoration: none;
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $gray-100;
+    color: $gray-900;
+  }
+
+  &.active {
+    color: $primary;
+    background-color: rgba($primary, 0.1);
+  }
+}
+
+.mobileActions {
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1px solid $gray-100;
+}
