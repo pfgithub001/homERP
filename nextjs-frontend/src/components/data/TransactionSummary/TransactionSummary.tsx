@@ -3,13 +3,9 @@
 import React from 'react';
 import { Card } from '@/components/generic/Card/Card';
 import { getTransactionSummary } from '@/services/api';
+import { formatMoney } from '@/utils/format';
 import type { TransactionSummary as TransactionSummaryType } from '@/types';
 import styles from './my.module.scss';
-
-const formatAmount = (value: number | undefined | null): string => {
-  if (value == null || isNaN(value)) return '0.00';
-  return value.toFixed(2);
-};
 
 export const TransactionSummary: React.FC = () => {
   const [summary, setSummary] = React.useState<TransactionSummaryType | null>(null);
@@ -37,19 +33,19 @@ export const TransactionSummary: React.FC = () => {
       <Card className={styles.card}>
         <div className={styles.label}>Total Income</div>
         <div className={`${styles.value} ${styles.income}`}>
-          +€{formatAmount(totalInflows)}
+          +{formatMoney(totalInflows)}
         </div>
       </Card>
       <Card className={styles.card}>
         <div className={styles.label}>Total Expense</div>
         <div className={`${styles.value} ${styles.expense}`}>
-          -€{formatAmount(totalOutflows)}
+          -{formatMoney(totalOutflows)}
         </div>
       </Card>
       <Card className={styles.card}>
         <div className={styles.label}>Balance</div>
         <div className={`${styles.value} ${netBalance >= 0 ? styles.positive : styles.negative}`}>
-          €{formatAmount(netBalance)}
+          {formatMoney(netBalance)}
         </div>
       </Card>
     </div>

@@ -76,6 +76,12 @@ public class TransactionController {
         return ResponseEntity.ok(transactionService.getSummary(start, end));
     }
 
+    @GetMapping("/summary/all")
+    @Operation(summary = "Get all-time transaction summary")
+    public ResponseEntity<TransactionSummaryDTO> getAllTimeSummary() {
+        return ResponseEntity.ok(transactionService.getAllTimeSummary());
+    }
+
     @PostMapping
     @Operation(summary = "Create new transaction")
     public ResponseEntity<TransactionResponseDTO> create(@Valid @RequestBody TransactionRequestDTO request) {

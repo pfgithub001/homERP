@@ -37,7 +37,7 @@ export const getAccounts = async (): Promise<Account[]> => {
 
 // Summary
 export const getTransactionSummary = async (): Promise<TransactionSummary> => {
-  const response = await api.get('/api/transactions/summary');
+  const response = await api.get('/api/transactions/summary/all');
   return response.data;
 };
 

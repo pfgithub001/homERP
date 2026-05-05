@@ -3,6 +3,7 @@
 import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { Table } from '@/components/generic/Table/Table';
 import { getTransactions, deleteTransaction } from '@/services/api';
+import { formatMoneyWithSign } from '@/utils/format';
 import type { Transaction } from '@/types';
 import styles from './my.module.scss';
 
@@ -77,11 +78,6 @@ export const TransactionList: React.FC<TransactionListProps> = ({ onDelete }) =>
     }
   };
 
-  const formatAmount = (amount: number, type: string) => {
-    const prefix = type === 'INFLOW' ? '+' : '-';
-    return `${prefix}€${amount.toFixed(2)}`;
-  };
-
   const formatDate = (date: string) => {
     return new Date(date).toLocaleDateString('es-ES');
   };
@@ -112,7 +108,7 @@ export const TransactionList: React.FC<TransactionListProps> = ({ onDelete }) =>
       header: 'Amount',
       render: (item: Transaction) => (
         <span className={item.type === 'INFLOW' ? styles.inflow : styles.outflow}>
-          {formatAmount(item.amount, item.type)}
+          {formatMoneyWithSign(item.amount, item.type)}
         </span>
       ),
     },

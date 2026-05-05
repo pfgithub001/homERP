@@ -79,6 +79,17 @@ public class TransactionService {
                 .build();
     }
 
+    public TransactionSummaryDTO getAllTimeSummary() {
+        BigDecimal inflows = transactionRepository.sumByType(TransactionType.INFLOW);
+        BigDecimal outflows = transactionRepository.sumByType(TransactionType.OUTFLOW);
+
+        return TransactionSummaryDTO.builder()
+                .totalInflows(inflows)
+                .totalOutflows(outflows)
+                .netBalance(inflows.subtract(outflows))
+                .build();
+    }
+
     @Transactional
     public TransactionResponseDTO create(TransactionRequestDTO request) {
         Account account = accountRepository.findById(request.getAccountId())
