@@ -6,6 +6,47 @@
   color: $gray-500;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $gray-100;
+}
+
+.count {
+  font-size: 0.875rem;
+  color: $gray-500;
+}
+
+.sortBtn {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: $gray-600;
+  cursor: pointer;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $gray-100;
+    color: $gray-900;
+  }
+}
+
+.sentinel {
+  height: 1px;
+  width: 100%;
+}
+
+.loadingMore {
+  text-align: center;
+  padding: $spacing-md;
+  color: $gray-500;
+  font-size: 0.875rem;
+}
+
 .inflow {
   color: $success;
   font-weight: 600;

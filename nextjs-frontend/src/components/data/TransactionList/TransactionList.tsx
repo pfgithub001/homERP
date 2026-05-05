@@ -1,11 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { Table } from '@/components/generic/Table/Table';
-import { Badge } from '@/components/generic/Badge/Badge';
 import { getTransactions, deleteTransaction } from '@/services/api';
 import type { Transaction } from '@/types';
 import styles from './my.module.scss';
+
+const PAGE_SIZE = 25;
 
 interface TransactionListProps {
   onDelete?: (id: number) => void;
@@ -14,6 +15,11 @@ interface TransactionListProps {
 export const TransactionList: React.FC<TransactionListProps> = ({ onDelete }) => {
   const [transactions, setTransactions] = React.useState<Transaction[]>([]);
   const [loading, setLoading] = React.useState(true);
+  const [sortDesc, setSortDesc] = React.useState(true);
+  const [displayedCount, setDisplayedCount] = useState(PAGE_SIZE);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     getTransactions()
@@ -21,6 +27,43 @@ export const TransactionList: React.FC<TransactionListProps> = ({ onDelete }) =>
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
+
+  const sortedTransactions = useMemo(() => {
+    return [...transactions].sort((a, b) =>
+      sortDesc
+        ? new Date(b.date).getTime() - new Date(a.date).getTime()
+        : new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
+  }, [transactions, sortDesc]);
+
+  const visibleTransactions = useMemo(() => {
+    return sortedTransactions.slice(0, displayedCount);
+  }, [sortedTransactions, displayedCount]);
+
+  const hasMore = displayedCount < transactions.length;
+
+  useEffect(() => {
+    if (!hasMore || isLoadingMore) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsLoadingMore(true);
+          setTimeout(() => {
+            setDisplayedCount((prev) => prev + PAGE_SIZE);
+            setIsLoadingMore(false);
+          }, 300);
+        }
+      },
+      { rootMargin: '100px' }
+    );
+
+    if (sentinelRef.current) {
+      observer.observe(sentinelRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasMore, isLoadingMore]);
 
   const handleDelete = async (id: number) => {
     if (confirm('Are you sure you want to delete this transaction?')) {
@@ -46,6 +89,8 @@ export const TransactionList: React.FC<TransactionListProps> = ({ onDelete }) =>
   if (loading) {
     return <div className={styles.loading}>Loading transactions...</div>;
   }
+
+  const toggleSort = () => setSortDesc(!sortDesc);
 
   const columns = [
     {
@@ -89,10 +134,20 @@ export const TransactionList: React.FC<TransactionListProps> = ({ onDelete }) =>
   ];
 
   return (
-    <Table
-      columns={columns}
-      data={transactions}
-      keyExtractor={(item) => item.id}
-    />
+    <>
+      <div className={styles.header}>
+        <span className={styles.count}>{transactions.length} transactions</span>
+        <button onClick={toggleSort} className={styles.sortBtn}>
+          {sortDesc ? '↓ Newest first' : '↑ Oldest first'}
+        </button>
+      </div>
+      <Table
+        columns={columns}
+        data={visibleTransactions}
+        keyExtractor={(item) => item.id}
+      />
+      <div ref={sentinelRef} className={styles.sentinel} />
+      {isLoadingMore && <div className={styles.loadingMore}>Loading more...</div>}
+    </>
   );
 };
