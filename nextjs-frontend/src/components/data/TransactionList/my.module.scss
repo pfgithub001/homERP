@@ -1,0 +1,31 @@
+@use '@/styles/variables' as *;
+
+.loading {
+  padding: $spacing-xl;
+  text-align: center;
+  color: $gray-500;
+}
+
+.inflow {
+  color: $success;
+  font-weight: 600;
+}
+
+.outflow {
+  color: $danger;
+  font-weight: 600;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: $gray-400;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: $spacing-xs;
+  line-height: 1;
+
+  &:hover {
+    color: $danger;
+  }
+}

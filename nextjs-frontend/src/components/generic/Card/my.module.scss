@@ -1,0 +1,33 @@
+@use '@/styles/variables' as *;
+
+.card {
+  background-color: $white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  border: 1px solid $gray-100;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $gray-100;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $gray-900;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.content {
+  padding: $spacing-lg;
+}

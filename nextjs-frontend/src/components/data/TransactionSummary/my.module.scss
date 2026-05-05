@@ -1,0 +1,44 @@
+@use '@/styles/variables' as *;
+
+.loading {
+  padding: $spacing-lg;
+  text-align: center;
+  color: $gray-500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-md;
+}
+
+.card {
+  text-align: center;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: $gray-500;
+  margin-bottom: $spacing-xs;
+}
+
+.value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.income {
+  color: $success;
+}
+
+.expense {
+  color: $danger;
+}
+
+.positive {
+  color: $success;
+}
+
+.negative {
+  color: $danger;
+}

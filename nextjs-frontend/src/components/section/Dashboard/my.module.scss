@@ -1,0 +1,51 @@
+@use '@/styles/variables' as *;
+
+.dashboard {
+  padding: $spacing-lg;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $gray-900;
+  margin-bottom: $spacing-lg;
+}
+
+.summarySection {
+  margin-bottom: $spacing-xl;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: $spacing-xl;
+  align-items: start;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formSection {
+  position: sticky;
+  top: $spacing-lg;
+}
+
+.listSection {
+  background-color: $white;
+  border-radius: $radius-lg;
+}
+
+.listHeader {
+  padding: $spacing-lg;
+  border-bottom: 1px solid $gray-100;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $gray-900;
+  margin: 0;
+}

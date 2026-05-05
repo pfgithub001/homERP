@@ -1,15 +1,18 @@
 com/homerp/dto/TransactionSummaryDTO.class
 com/homerp/controller/CategoryController.class
 com/homerp/HomErpApplication.class
+com/homerp/entity/User.class
 com/homerp/dto/CategoryRequestDTO.class
 com/homerp/config/OpenApiConfig.class
 com/homerp/entity/Account$AccountBuilder.class
 com/homerp/dto/CategoryResponseDTO$CategoryResponseDTOBuilder.class
 com/homerp/dto/TransactionRequestDTO.class
 com/homerp/dto/AccountResponseDTO.class
+com/homerp/repository/UserRepository.class
 com/homerp/dto/TransactionRequestDTO$TransactionRequestDTOBuilder.class
 com/homerp/dto/CategoryRequestDTO$CategoryRequestDTOBuilder.class
 com/homerp/entity/Category.class
+com/homerp/entity/User$UserBuilder.class
 com/homerp/entity/TransactionType.class
 com/homerp/dto/TransactionResponseDTO.class
 com/homerp/dto/TransactionResponseDTO$TransactionResponseDTOBuilder.class
@@ -18,6 +21,7 @@ com/homerp/repository/TransactionRepository.class
 com/homerp/controller/AccountController.class
 com/homerp/controller/TransactionController.class
 com/homerp/dto/AccountRequestDTO.class
+com/homerp/config/DataSeeder.class
 com/homerp/entity/Account$AccountType.class
 com/homerp/service/CategoryService.class
 com/homerp/dto/CategoryResponseDTO.class

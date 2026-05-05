@@ -1,4 +1,5 @@
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/HomErpApplication.java
+/Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/config/DataSeeder.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/config/OpenApiConfig.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/controller/AccountController.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/controller/CategoryController.java
@@ -14,10 +15,12 @@
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/entity/Category.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/entity/Transaction.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/entity/TransactionType.java
+/Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/entity/User.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/exception/GlobalExceptionHandler.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/repository/AccountRepository.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/repository/CategoryRepository.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/repository/TransactionRepository.java
+/Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/repository/UserRepository.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/service/AccountService.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/service/CategoryService.java
 /Users/pabloferreras/Documents/v/developement/personal/homERP/spring-boot-backend/src/main/java/com/homerp/service/TransactionService.java
